@@ -17,7 +17,7 @@ function TaskCard({ id, taskText, taskName, taskImportant }) {
           <span className={styles.timer}>{taskImportant}</span>
         </div>
 
-        <p className={styles.taskTitle}>{newText.slice(0, 99) + "..."}</p>
+        <p className={styles.taskTitle}>{newText.slice(0, 100) + "..."}</p>
         <div className={styles.actionButtons}>
           <button className={styles.moreBtn}>More details</button>
           <button className={styles.rejectBtn}>Reject</button>
