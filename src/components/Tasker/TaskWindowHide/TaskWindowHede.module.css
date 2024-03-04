@@ -1,0 +1,16 @@
+.taskWindowHide__text {
+  color: rgb(240, 240, 240);
+  padding: 12px 20px;
+  background-color: #9c6af8;
+  border-radius: 30px;
+  box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.2);
+  cursor: pointer;
+  border: none;
+  font-size: 18px;
+  transition: all ease-in-out 0.1s;
+}
+
+.taskWindowHide__text:active {
+  scale: 0.9;
+  background-color: #8756e3;
+}

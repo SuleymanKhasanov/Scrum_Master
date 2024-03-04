@@ -1,0 +1,97 @@
+.taskWindow {
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.2);
+  background-color: #fff;
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.taskTitleWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clouseBtn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 25px;
+  color: rgb(72, 72, 72);
+}
+
+.inputTitle {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #a4a4a4;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  font-family: inherit;
+}
+
+.textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px 15px;
+  border: 1px solid #a4a4a4;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  resize: none;
+  font-family: inherit;
+}
+
+.radioBtnWrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.label {
+  font-size: 10px;
+  font-family: inherit;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.labelWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.submitBtn {
+  padding: 10px 25px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e9d3ff;
+  color: #601ca1;
+  cursor: pointer;
+  transition: all ease-in-out 0.1s;
+  box-shadow: 0px 1px 9px -1px rgba(34, 60, 80, 0.1);
+  font-family: inherit;
+}
+
+.submitBtn:active {
+  scale: 0.9;
+}
+
+.timer {
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  border: 1px solid #a4a4a4;
+  padding: 10px;
+  font-family: inherit;
+}

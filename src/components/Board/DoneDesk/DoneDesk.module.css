@@ -1,0 +1,21 @@
+.doneDesk {
+  width: 100%;
+  border: 1px solid #ededed;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
+.taskTitle {
+  margin: 10px;
+}
+
+.taskBox {
+  background-color: #ededed;
+  height: 100vh;
+  overflow-y: scroll;
+  border-radius: 30px;
+}
