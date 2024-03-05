@@ -19,3 +19,7 @@
   overflow-y: scroll;
   border-radius: 30px;
 }
+
+.taskBox::-webkit-scrollbar{
+  display: none;
+}
