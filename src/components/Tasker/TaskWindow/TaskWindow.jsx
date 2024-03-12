@@ -35,7 +35,7 @@ const TaskWindow = ({ setWindow }) => {
     <div className={styles.taskWindow}>
       <div className={styles.container}>
         <div className={styles.taskTitleWrapper}>
-          <h3>Add new task</h3>
+          <h3>Enter a new task</h3>
           <button className={styles.clouseBtn} onClick={() => setWindow(false)}>
             <IoIosCloseCircle />
           </button>
@@ -44,13 +44,13 @@ const TaskWindow = ({ setWindow }) => {
         <form className={styles.form} onSubmit={handleSubmitForm}>
           <input
             type="text"
-            placeholder="Write task title"
+            placeholder="Write the title of the task"
             className={styles.inputTitle}
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
           />
           <textarea
-            placeholder="Write aboute task"
+            placeholder="Describe the task"
             className={styles.textarea}
             value={abouteTask}
             onChange={(e) => setAbouteTask(e.target.value)}

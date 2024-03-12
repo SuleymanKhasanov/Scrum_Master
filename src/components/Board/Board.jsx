@@ -3,6 +3,7 @@ import ProcessedDesk from "./ProcessedDesk/ProcessedDesk";
 import styles from "./Board.module.css";
 import DoneDesk from "./DoneDesk/DoneDesk";
 import DeleteDesk from "./DeleteDesk/DeleteDesk";
+import MoreDetails from "../MoreDetails/MoreDetails";
 
 function Board() {
   return (
@@ -11,6 +12,7 @@ function Board() {
       <ProcessedDesk />
       <DoneDesk />
       <DeleteDesk />
+      <MoreDetails />
     </div>
   );
 }

@@ -22,11 +22,15 @@
   border: 2px solid #ededed;
 }
 
+.taskBox::-webkit-scrollbar {
+  display: none;
+}
+
 .counter {
   font-size: 16px;
   font-weight: normal;
   padding: 5px 10px;
-  border-radius: 50%;
+  border-radius: 12px;
   background-color: #dddddd;
   margin-left: 5px;
 }
