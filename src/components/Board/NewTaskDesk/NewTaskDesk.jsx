@@ -6,6 +6,7 @@ const NewTaskDesk = () => {
   const cardData = useSelector((data) => {
     return data.newTask;
   });
+
   return (
     <section className={styles.newTaskDesk}>
       <div className={styles.container}>

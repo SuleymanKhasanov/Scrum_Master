@@ -3,7 +3,7 @@ const TaskWindowHide = ({ setWindow }) => {
   return (
     <>
       <button className={styles.taskWindowHide__text} onClick={() => setWindow(true)}>
-        Create new task
+        Create a new task
       </button>
     </>
   );

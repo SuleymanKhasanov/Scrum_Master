@@ -2,7 +2,7 @@
   width: 95%;
   margin: 10px auto;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 25px;
   box-shadow: 0px 1px 8px 0px rgba(34, 60, 80, 0.2);
   padding: 10px;
   animation: taskCardFirstPosition;
@@ -42,7 +42,7 @@
 }
 
 .moreBtn {
-  padding: 8px 10px;
+  padding: 12px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
@@ -58,7 +58,7 @@
 }
 
 .rejectBtn {
-  padding: 8px 10px;
+  padding: 12px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
@@ -74,7 +74,7 @@
 }
 
 .executeBtn {
-  padding: 8px 10px;
+  padding: 12px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
@@ -114,4 +114,31 @@
   100% {
     margin: 10px auto;
   }
+}
+
+.pingRed {
+  width: 15px;
+  height: 15px;
+  background-color: #f80000;
+  border-radius: 50%;
+}
+
+.pingGreen {
+  width: 15px;
+  height: 15px;
+  background-color: #11f800;
+  border-radius: 50%;
+}
+
+.pingYellow {
+  width: 15px;
+  height: 15px;
+  background-color: #f8e300;
+  border-radius: 50%;
+}
+
+.important {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
