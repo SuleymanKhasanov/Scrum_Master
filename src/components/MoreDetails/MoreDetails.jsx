@@ -14,7 +14,9 @@ const MoreDetails = () => {
     setOpenWindow(isOpen);
   }, [data]);
 
-  console.log(data);
+  const text = data[data.length - 1] !== undefined ? data[data.length - 1].taskText : "";
+
+  const textArr = text.split(" ");
 
   return (
     <div className={openWindow === false ? styles.hideWrapper : styles.bluredWrapper}>
@@ -32,7 +34,13 @@ const MoreDetails = () => {
             </span>
           </div>
           <p className={styles.text}>
-            {data[data.length - 1] !== undefined ? data[data.length - 1].taskText : null}
+            {textArr.map((parts, i) => {
+              return (
+                <span className={styles.highlight} key={i}>
+                  {parts}{" "}
+                </span>
+              );
+            })}
           </p>
         </div>
       </div>

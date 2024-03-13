@@ -122,3 +122,14 @@
   height: 500px;
   line-height: 25px;
 }
+
+.highlight {
+  background-color: inherit;
+  transition: 0.1s ease-in;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.highlight:hover {
+  background-color: #f8e300;
+}
