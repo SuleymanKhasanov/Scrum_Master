@@ -28,8 +28,10 @@ const MoreDetails = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.title}>
-            <h3>{data[data.length - 1] !== undefined ? data[data.length - 1].taskName : null}</h3>
-            <span className="important">
+            <h3 className={styles.headingTitle}>
+              {data[data.length - 1] !== undefined ? data[data.length - 1].taskName : null}
+            </h3>
+            <span className={styles.important}>
               {data[data.length - 1] !== undefined ? data[data.length - 1].taskImportant : null}
             </span>
           </div>

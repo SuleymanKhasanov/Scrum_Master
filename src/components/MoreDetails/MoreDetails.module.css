@@ -111,6 +111,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+  align-items: end;
+}
+
+.headingTitle {
+  width: 400px;
 }
 
 .text {
@@ -119,7 +124,7 @@
   border-radius: 20px;
   font-size: 16px;
   overflow-y: scroll;
-  height: 500px;
+  height: 65vh;
   line-height: 25px;
 }
 
@@ -128,8 +133,23 @@
   transition: 0.1s ease-in;
   padding: 5px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .highlight:hover {
-  background-color: #f8e300;
+  background-color: #e7e7e7;
+}
+
+.important {
+  position: relative;
+}
+
+.important::after {
+  content: "Need to complete the task before";
+  position: absolute;
+  font-size: 12px;
+  color: #8d8d8d;
+  width: 250px;
+  right: 5px;
+  bottom: 0px;
 }
