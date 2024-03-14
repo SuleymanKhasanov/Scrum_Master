@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-
 import { moreDetails } from "../../../redux/sliceMoreDetails";
+import { reject } from "../../../redux/sliceReject";
+import { useSelector } from "react-redux";
 import styles from "./TaskCard.module.css";
+import { deleteCard } from "../../../redux/sliceDelete";
+import { createNewTask } from "../../../redux/slice";
 
 function TaskCard({ id, taskText, taskName, taskImportant }) {
   const firstLetterUpperOnName = taskName[0].toUpperCase();
@@ -28,6 +31,8 @@ function TaskCard({ id, taskText, taskName, taskImportant }) {
 
   const [useMoreDetails, setUseMoreDetails] = useState(false);
 
+  const [rejectBtn, setRejectBtn] = useState(false);
+
   const dispatch = useDispatch();
 
   if (useMoreDetails === true) {
@@ -35,11 +40,30 @@ function TaskCard({ id, taskText, taskName, taskImportant }) {
     setUseMoreDetails(false);
   }
 
+  const rejectData = useSelector((data) => {
+    return data.rejectTask || [];
+  });
+
+  const [disable, setDisable] = useState(false);
+
+  const disableBtn = rejectData.some((item) => item.reject === true && item.id === id);
+
+  useEffect(() => {
+    setDisable(disableBtn);
+  }, [rejectData]);
+
+  if (rejectBtn === true) {
+    dispatch(reject({ id, taskText, taskName, taskImportant, reject: true }));
+    setRejectBtn(false);
+  }
+
   return (
     <div className={styles.taskCard} key={id}>
       <div className={styles.container}>
         <div className={styles.titleWrapper}>
-          <h4 className={styles.taskName}>{newTitleName}</h4>
+          <h4 className={styles.taskName}>
+            {newTitleName.length > 35 ? newTitleName.slice(0, 35) + "..." : newTitleName}{" "}
+          </h4>
           <div className={styles.important}>
             <span className={styles.timer}>{taskImportant}</span>
             <div
@@ -66,8 +90,15 @@ function TaskCard({ id, taskText, taskName, taskImportant }) {
           >
             More details
           </button>
-          <button className={styles.rejectBtn}>Reject</button>
-          <button className={styles.executeBtn}>Execute</button>
+          <button
+            className={disable ? styles.disable : styles.rejectBtn}
+            onClick={() => {
+              setRejectBtn(true);
+            }}
+          >
+            Reject
+          </button>
+          <button className={disable ? styles.disable : styles.executeBtn}>Execute</button>
         </div>
       </div>
     </div>
