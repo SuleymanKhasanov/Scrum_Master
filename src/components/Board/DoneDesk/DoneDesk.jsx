@@ -22,6 +22,7 @@ const DoneDesk = () => {
                   taskImportant={data.taskImportant}
                   key={data.id}
                   processedCard1={data.processedCard}
+                  doneCard={data.doneCard}
                 />
               );
             })

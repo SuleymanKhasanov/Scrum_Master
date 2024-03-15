@@ -7,7 +7,14 @@ import { done } from "./../../../redux/sliceDone";
 import { useSelector } from "react-redux";
 import styles from "./TaskCard.module.css";
 
-function TaskCard({ id, taskText, taskName, taskImportant, processedCard1 = false }) {
+function TaskCard({
+  id,
+  taskText,
+  taskName,
+  taskImportant,
+  processedCard1 = false,
+  doneCard = false,
+}) {
   const firstLetterUpperOnName = taskName[0].toUpperCase();
   const deleteFirstLetterOnName = taskName.slice(1);
   const newTitleName = firstLetterUpperOnName + deleteFirstLetterOnName;
@@ -28,6 +35,14 @@ function TaskCard({ id, taskText, taskName, taskImportant, processedCard1 = fals
   const currentMinutes = parseInt(minutes);
 
   const currentTime = currentHour + currentMinutes;
+
+  const [time, setTime] = useState(0);
+  useEffect(() => {
+    setTimeout(() => {
+      setTime(timeImportant - currentTime);
+    }, 2000);
+    setTime(timeImportant - currentTime + 1);
+  });
 
   const [useMoreDetails, setUseMoreDetails] = useState(false);
 
@@ -67,7 +82,7 @@ function TaskCard({ id, taskText, taskName, taskImportant, processedCard1 = fals
   const [doneFn, setDoneFn] = useState(false);
 
   if (doneFn) {
-    dispatch(done({ id, taskText, taskName, taskImportant }));
+    dispatch(done({ id, taskText, taskName, taskImportant, doneCard: true }));
     setDoneFn(false);
   }
 
@@ -82,11 +97,7 @@ function TaskCard({ id, taskText, taskName, taskImportant, processedCard1 = fals
             <span className={styles.timer}>{taskImportant}</span>
             <div
               className={
-                timeImportant - currentTime <= 60
-                  ? styles.pingRed
-                  : timeImportant - currentTime < 120
-                  ? styles.pingYellow
-                  : styles.pingGreen
+                time <= 60 ? styles.pingRed : time < 120 ? styles.pingYellow : styles.pingGreen
               }
             ></div>
           </div>
@@ -105,7 +116,7 @@ function TaskCard({ id, taskText, taskName, taskImportant, processedCard1 = fals
             More details
           </button>
           <button
-            className={disable ? styles.disable : styles.rejectBtn}
+            className={disable || doneCard ? styles.disable : styles.rejectBtn}
             onClick={() => {
               setRejectBtn(true);
             }}
@@ -118,10 +129,10 @@ function TaskCard({ id, taskText, taskName, taskImportant, processedCard1 = fals
             </button>
           ) : (
             <button
-              className={disable ? styles.disable : styles.executeBtn}
+              className={disable || doneCard ? styles.disable : styles.executeBtn}
               onClick={() => setProcessedCard(true)}
             >
-              {processedCard1 ? "hello" : "Execute"}
+              {doneCard ? "Done" : "Execute"}
             </button>
           )}
         </div>
