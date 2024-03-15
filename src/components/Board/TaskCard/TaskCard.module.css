@@ -155,3 +155,37 @@
   color: #000000;
   background-color: #e5e5e5;
 }
+
+.doneBtn {
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all ease-in-out 0.1s;
+  box-shadow: 0px 1px 9px -1px rgba(34, 60, 80, 0.1);
+  font-family: inherit;
+  color: #ffffff;
+  animation: gradient 5s linear infinite;
+}
+
+.doneBtn:active {
+  scale: 0.9;
+}
+
+@keyframes gradient {
+  0% {
+    background: linear-gradient(0deg, #4568dc 0%, #b06ab3 100%);
+  }
+  30% {
+    background: linear-gradient(120deg, #4568dc 0%, #b06ab3 100%);
+  }
+  60% {
+    background: linear-gradient(240deg, #4568dc 0%, #b06ab3 100%);
+  }
+  90% {
+    background: linear-gradient(360deg, #4568dc 0%, #b06ab3 100%);
+  }
+  100% {
+    background: linear-gradient(0deg, #4568dc 0%, #b06ab3 100%);
+  }
+}
