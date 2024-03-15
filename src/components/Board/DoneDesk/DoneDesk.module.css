@@ -18,8 +18,24 @@
   height: 100vh;
   overflow-y: scroll;
   border-radius: 30px;
+  padding-bottom: 200px;
+  border: 2px solid #ededed;
 }
 
 .taskBox::-webkit-scrollbar {
   display: none;
+}
+
+.counter {
+  font-size: 16px;
+  font-weight: normal;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background-color: #dddddd;
+  margin-left: 5px;
+}
+
+.noTask {
+  margin-top: 50vh;
+  color: #9b9b9b;
 }

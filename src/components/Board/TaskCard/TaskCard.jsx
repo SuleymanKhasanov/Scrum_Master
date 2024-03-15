@@ -3,10 +3,11 @@ import { useDispatch } from "react-redux";
 import { moreDetails } from "../../../redux/sliceMoreDetails";
 import { processed } from "../../../redux/sliceProcessed";
 import { reject } from "../../../redux/sliceReject";
+import { done } from "./../../../redux/sliceDone";
 import { useSelector } from "react-redux";
 import styles from "./TaskCard.module.css";
 
-function TaskCard({ id, taskText, taskName, taskImportant }) {
+function TaskCard({ id, taskText, taskName, taskImportant, processedCard1 = false }) {
   const firstLetterUpperOnName = taskName[0].toUpperCase();
   const deleteFirstLetterOnName = taskName.slice(1);
   const newTitleName = firstLetterUpperOnName + deleteFirstLetterOnName;
@@ -63,6 +64,13 @@ function TaskCard({ id, taskText, taskName, taskImportant }) {
     setProcessedCard(false);
   }
 
+  const [doneFn, setDoneFn] = useState(false);
+
+  if (doneFn) {
+    dispatch(done({ id, taskText, taskName, taskImportant }));
+    setDoneFn(false);
+  }
+
   return (
     <div className={styles.taskCard} key={id}>
       <div className={styles.container}>
@@ -104,12 +112,18 @@ function TaskCard({ id, taskText, taskName, taskImportant }) {
           >
             Reject
           </button>
-          <button
-            className={disable ? styles.disable : styles.executeBtn}
-            onClick={() => setProcessedCard(true)}
-          >
-            Execute
-          </button>
+          {processedCard1 ? (
+            <button className={styles.doneBtn} onClick={() => setDoneFn(true)}>
+              Done
+            </button>
+          ) : (
+            <button
+              className={disable ? styles.disable : styles.executeBtn}
+              onClick={() => setProcessedCard(true)}
+            >
+              {processedCard1 ? "hello" : "Execute"}
+            </button>
+          )}
         </div>
       </div>
     </div>
