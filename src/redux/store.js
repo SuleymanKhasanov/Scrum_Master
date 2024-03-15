@@ -2,14 +2,16 @@ import { configureStore } from "@reduxjs/toolkit";
 import tasks from "./slice";
 import taskDetails from "./sliceMoreDetails";
 import rejectTask from "./sliceReject";
-import deleteTask from "./sliceDelete";
+import processedTask from "./sliceProcessed";
+import doneTask from "./sliceDone";
 
 const store = configureStore({
   reducer: {
     newTask: tasks,
     moreDetails: taskDetails,
     rejectTask: rejectTask,
-    deleteTask: deleteTask,
+    processedTask: processedTask,
+    doneTask: doneTask,
   },
 });
 

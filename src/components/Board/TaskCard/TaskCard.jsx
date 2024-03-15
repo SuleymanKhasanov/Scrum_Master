@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { moreDetails } from "../../../redux/sliceMoreDetails";
+import { processed } from "../../../redux/sliceProcessed";
 import { reject } from "../../../redux/sliceReject";
 import { useSelector } from "react-redux";
 import styles from "./TaskCard.module.css";
-import { deleteCard } from "../../../redux/sliceDelete";
-import { createNewTask } from "../../../redux/slice";
 
 function TaskCard({ id, taskText, taskName, taskImportant }) {
   const firstLetterUpperOnName = taskName[0].toUpperCase();
@@ -57,6 +56,13 @@ function TaskCard({ id, taskText, taskName, taskImportant }) {
     setRejectBtn(false);
   }
 
+  const [processedCard, setProcessedCard] = useState(false);
+
+  if (processedCard) {
+    dispatch(processed({ id, taskText, taskName, taskImportant, processedCard: true }));
+    setProcessedCard(false);
+  }
+
   return (
     <div className={styles.taskCard} key={id}>
       <div className={styles.container}>
@@ -98,7 +104,12 @@ function TaskCard({ id, taskText, taskName, taskImportant }) {
           >
             Reject
           </button>
-          <button className={disable ? styles.disable : styles.executeBtn}>Execute</button>
+          <button
+            className={disable ? styles.disable : styles.executeBtn}
+            onClick={() => setProcessedCard(true)}
+          >
+            Execute
+          </button>
         </div>
       </div>
     </div>

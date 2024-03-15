@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 const NewTaskDesk = () => {
   const cardData = useSelector((data) => data.newTask);
   const rejectTask = useSelector((data) => data.rejectTask);
+  const processedTask = useSelector((data) => data.processedTask);
 
   const [filteredCards, setFilteredCards] = useState(cardData);
 
@@ -13,8 +14,16 @@ const NewTaskDesk = () => {
     const filteredData = cardData.filter(
       (card) => !rejectTask.some((rejectedItem) => rejectedItem.id === card.id)
     );
-    setFilteredCards(filteredData);
-  }, [cardData, rejectTask]);
+    const filteredData2 = cardData.filter(
+      (card) => !processedTask.some((processedItem) => processedItem.id === card.id)
+    );
+
+    const filteredData3 = filteredData.filter((card) =>
+      filteredData2.some((processedItem) => processedItem.id === card.id)
+    );
+
+    setFilteredCards(filteredData3);
+  }, [cardData, rejectTask, processedTask]);
 
   return (
     <section className={styles.newTaskDesk}>
