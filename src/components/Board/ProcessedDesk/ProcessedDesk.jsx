@@ -23,7 +23,6 @@ const ProcessedDesk = () => {
       filteredData2.some((item) => item.id === card.id)
     );
 
-    console.log(filteredData3);
     setFilteredCards(filteredData3);
   }, [processedData, rejectTask, doneData]);
 

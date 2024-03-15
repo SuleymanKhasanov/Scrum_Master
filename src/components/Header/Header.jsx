@@ -1,4 +1,5 @@
 import styles from "./Header.module.css";
+import logo from "./img/logo.svg";
 
 const Header = () => {
   return (
@@ -6,7 +7,8 @@ const Header = () => {
       <div className={styles.container}>
         <nav className={styles.navigation}>
           <a href="#" className={styles.header__logo}>
-            <h1 className={styles.header__title}>Scrum Master</h1>
+            <img src={logo} alt="logo" className={styles.logo} />
+            <h1 className={styles.header__title}>Swift</h1>
           </a>
         </nav>
       </div>
