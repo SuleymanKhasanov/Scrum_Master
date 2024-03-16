@@ -237,3 +237,52 @@
     background: linear-gradient(360deg, #4568dc 0%, #b06ab3 100%);
   }
 }
+
+.hide {
+  width: 95%;
+  margin: 10px auto;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 10px;
+  animation: hideCard;
+  animation-timing-function: linear;
+  animation-duration: 0.4s;
+  overflow: visible;
+}
+
+@keyframes hideCard {
+  0% {
+    height: 100px;
+    overflow: visible;
+  }
+  100% {
+    height: 0px;
+    overflow: clip;
+    padding: 0;
+  }
+}
+
+.hideContainer {
+  text-align: left;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  animation: hideContainer;
+  animation-timing-function: linear;
+  animation-duration: 0.4s;
+  overflow: visible;
+  opacity: 0;
+}
+
+@keyframes hideContainer {
+  0% {
+    height: 100px;
+    overflow: visible;
+  }
+  100% {
+    height: 0px;
+    overflow: clip;
+  }
+}

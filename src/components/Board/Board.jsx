@@ -17,7 +17,7 @@ function Board() {
     setShowAnimation(hasDone);
     setTimeout(() => {
       setShowAnimation(false);
-    }, 4500);
+    }, 4100);
   }, [doneData]);
 
   return (

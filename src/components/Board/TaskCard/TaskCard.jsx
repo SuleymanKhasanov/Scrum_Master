@@ -86,9 +86,44 @@ function TaskCard({
     setDoneFn(false);
   }
 
+  const [hideRejectCard, setHideRejectCard] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setRejectBtn(hideRejectCard);
+    }, 390);
+  }, [hideRejectCard]);
+
+  const [hideProcessedCard, setHideProcessedCard] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setProcessedCard(hideProcessedCard);
+    }, 390);
+  }, [hideProcessedCard]);
+
+  const [hideDoneCard, setHideDoneCard] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDoneFn(hideDoneCard);
+    }, 390);
+  }, [hideDoneCard]);
+
   return (
-    <div className={styles.taskCard} key={id}>
-      <div className={styles.container}>
+    <div
+      className={
+        hideRejectCard || hideProcessedCard || hideDoneCard ? styles.hide : styles.taskCard
+      }
+      key={id}
+    >
+      <div
+        className={
+          hideRejectCard || hideProcessedCard || hideDoneCard
+            ? styles.hideContainer
+            : styles.container
+        }
+      >
         <div className={styles.titleWrapper}>
           <h4 className={styles.taskName}>
             {newTitleName.length > 35 ? newTitleName.slice(0, 35) + "..." : newTitleName}{" "}
@@ -118,19 +153,19 @@ function TaskCard({
           <button
             className={disable || doneCard ? styles.disable : styles.rejectBtn}
             onClick={() => {
-              setRejectBtn(true);
+              setHideRejectCard(true);
             }}
           >
             Reject
           </button>
           {processedCard1 ? (
-            <button className={styles.doneBtn} onClick={() => setDoneFn(true)}>
+            <button className={styles.doneBtn} onClick={() => setHideDoneCard(true)}>
               Done
             </button>
           ) : (
             <button
               className={disable || doneCard ? styles.disable : styles.executeBtn}
-              onClick={() => setProcessedCard(true)}
+              onClick={() => setHideProcessedCard(true)}
             >
               {doneCard ? "Done" : "Execute"}
             </button>
