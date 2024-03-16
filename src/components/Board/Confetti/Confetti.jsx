@@ -10,4 +10,3 @@ const Confetti = () => {
 };
 
 export default Confetti;
-s;
