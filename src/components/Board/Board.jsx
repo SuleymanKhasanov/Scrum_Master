@@ -8,9 +8,13 @@ import Confetti from "./Confetti/Confetti";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-function Board() {
+function Board({ isMobile, isDesktop }) {
   const [showAnimation, setShowAnimation] = useState(false);
   const doneData = useSelector((data) => data.doneTask);
+
+  const MobileAction = useSelector((data) => {
+    return data.actiosFromMobile;
+  });
 
   useEffect(() => {
     const hasDone = doneData.some((element) => element.doneCard === true);
@@ -20,14 +24,51 @@ function Board() {
     }, 4100);
   }, [doneData]);
 
+  const [mobileContent, setMobileContent] = useState(null);
+
+  const [mobileDataContent, setMobileDataConten] = useState(0);
+
+  useEffect(() => {
+    setMobileDataConten(
+      MobileAction[MobileAction.length - 1] !== undefined
+        ? MobileAction[MobileAction.length - 1].TaskMobileBtn
+        : 0
+    );
+  }, [MobileAction]);
+
+  useEffect(() => {
+    switch (mobileDataContent) {
+      case 0:
+        setMobileContent(<NewTaskDesk />);
+        break;
+      case 1:
+        setMobileContent(<ProcessedDesk />);
+        break;
+      case 2:
+        setMobileContent(<DoneDesk />);
+        break;
+      case 3:
+        setMobileContent(<DeleteDesk />);
+        break;
+      default:
+        setMobileContent(null);
+    }
+  }, [mobileDataContent]);
+
   return (
     <div className={styles.boardContainer}>
-      <NewTaskDesk />
-      <ProcessedDesk />
-      <DoneDesk />
-      <DeleteDesk />
+      {isMobile === true ? (
+        mobileContent
+      ) : (
+        <>
+          <NewTaskDesk />
+          <ProcessedDesk />
+          <DoneDesk />
+          <DeleteDesk />
+        </>
+      )}
       <MoreDetails />
-      {showAnimation ? <Confetti /> : null}
+      {showAnimation ? <Confetti isMobile={isMobile} /> : null}
     </div>
   );
 }
