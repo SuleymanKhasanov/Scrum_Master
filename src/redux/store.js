@@ -4,6 +4,7 @@ import taskDetails from "./sliceMoreDetails";
 import rejectTask from "./sliceReject";
 import processedTask from "./sliceProcessed";
 import doneTask from "./sliceDone";
+import actiosFromMobile from "./sliceMobileActions";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     rejectTask: rejectTask,
     processedTask: processedTask,
     doneTask: doneTask,
+    actiosFromMobile: actiosFromMobile,
   },
 });
 

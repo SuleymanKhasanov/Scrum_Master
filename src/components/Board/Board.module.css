@@ -2,3 +2,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+
+@media screen and (max-width: 800px) {
+  .boardContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    height: 100vh;
+  }
+}

@@ -1,10 +1,12 @@
 import Lottie from "lottie-react";
-import animationData from "./../../../assets/Animation - 1710262601050.json";
+import animationDesctop from "./../../../assets/Animation - 1710262601050.json";
+import animationMobile from "./../../../assets/Animation-Mobile- 1710658633934.json";
 import styles from "./Confetti.module.css";
-const Confetti = () => {
+
+const Confetti = ({ isMobile }) => {
   return (
     <div className={styles.animation}>
-      <Lottie animationData={animationData} loop={false} />
+      <Lottie animationData={isMobile === true ? animationMobile : animationDesctop} loop={false} />
     </div>
   );
 };
